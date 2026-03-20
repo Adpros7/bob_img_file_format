@@ -22,13 +22,16 @@ def main(image: str):
             # print(img.getpixel((i, j)))
 
 
-    # for i, v in enumerate(find_repeated(final).items()):
-    #     final = final.replace(i, f"<{v}>")
+    for i, v in enumerate(find_repeated(final).items()):
+        final = f"{chr(i + 122)}={v[0]}{final}"
 
-    final = lzma.compress(final.encode("utf-8"))
+    # final = lzma.compress(final.encode("utf-8"))
 
-    with open("new.bob", "wb") as f:
+    # with open("new.bob", "wb") as f:
+    #     f.write(final)
+
+    with open("newtxt.bob", "w", encoding="utf-8") as f:
         f.write(final)
 if __name__ == "__main__":
-    # main("pngwing.com.png")
-    main("img.jpg")
+    main("pngwing.com.png")
+    # main("img.jpg")
